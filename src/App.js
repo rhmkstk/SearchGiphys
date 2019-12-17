@@ -26,7 +26,7 @@ function App() {
   }
   const makeSearch = () => {
     setIsData(true);
-    fetch(`http://api.giphy.com/v1/gifs/search?q=${search}&api_key=${API_KEY}`)
+    fetch(`wss://api.giphy.com/v1/gifs/search?q=${search}&api_key=${API_KEY}`)
       .then(res => {return res.json()})
       .then(res => {setGifts(res.data); console.log(res.data)})
       .then(setSearch(''))
@@ -34,7 +34,7 @@ function App() {
   }
   const stickerSearch = () => {
     setIsData(true);
-    fetch(`http://api.giphy.com/v1/stickers/search?q=${search}&api_key=${API_KEY}`)
+    fetch(`wss://api.giphy.com/v1/stickers/search?q=${search}&api_key=${API_KEY}`)
       .then(res => {return res.json()})
       .then(res => {setGifts(res.data);  console.log(res.data)})
       .then(setSearch(''))
