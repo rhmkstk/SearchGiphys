@@ -26,7 +26,7 @@ function App() {
   }
   const makeSearch = () => {
     setIsData(true);
-    fetch(`wss://api.giphy.com/v1/gifs/search?q=${search}&api_key=${API_KEY}`)
+    fetch(`http://api.giphy.com/v1/gifs/search?q=${search}&api_key=${API_KEY}`)
       .then(res => {return res.json()})
       .then(res => {setGifts(res.data); console.log(res.data)})
       .then(setSearch(''))
@@ -34,7 +34,7 @@ function App() {
   }
   const stickerSearch = () => {
     setIsData(true);
-    fetch(`wss://api.giphy.com/v1/stickers/search?q=${search}&api_key=${API_KEY}`)
+    fetch(`http://api.giphy.com/v1/stickers/search?q=${search}&api_key=${API_KEY}`)
       .then(res => {return res.json()})
       .then(res => {setGifts(res.data);  console.log(res.data)})
       .then(setSearch(''))
@@ -47,11 +47,11 @@ function App() {
     document.body.appendChild(textField);
     textField.select();
     document.execCommand('copy');
+    textField.style.display = 'none';
     setTimeout(() => {
       setIsCopied('');
-    },1400)
+    },1100)
   }
-
   return (
     <div className="App">
       <div className="search">
@@ -65,7 +65,7 @@ function App() {
         {
           gifts.map((e) => 
             <div className="imgWrapper" key={e.id} onClick={() => {copyUrl(e)}}>
-              {e.id === isCopied && <Copy/>}
+              {e.id === isCopied && <Copy/>} 
               <Content title={e.images.fixed_height.url} key={e.id} />
             </div>
           )
