@@ -1,4 +1,4 @@
-This is basic app with react.js which use giphy-api. You can search whatever you want as gif or sticker and you copy by clicking on the content and send friend or do anything.
+This is basic app with react.js which use giphy-api. You can search whatever you want as gif or sticker and copy by clicking on the content and send friend or do anything.
 
 Use from : https://gipyh.herokuapp.com
 
